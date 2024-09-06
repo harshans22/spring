@@ -9,15 +9,11 @@ public class FirstApplication {
 
 	public static void main(String[] args) {
 		var ctx=SpringApplication.run(FirstApplication.class, args);// to get context of IOC container
-        //MyFirstClass myfirstclass =new MyFirstClass(); don't need to do this we will use bean
-       // MyFirstClass myFirstClass=ctx.getBean(MyFirstClass.class);
         MyFirstService myFirstService=ctx.getBean(MyFirstService.class);
         System.out.println(myFirstService.tellAStory());
+        System.out.println(myFirstService.getCustomProperty());
+        System.out.println(myFirstService.getCustomIntPropertyInt());
+        System.out.println(myFirstService.getCustomPropertyFromanotherFile());
+        System.out.println(myFirstService.getCustomPropertyFromanotherFile2());
 	}
-
-    //one method to declare bean by using component
-//    @Bean
-//    public MyFirstClass myFirstClass(){
-//        return new MyFirstClass();
-//    }
 }
