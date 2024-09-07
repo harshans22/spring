@@ -2,9 +2,7 @@ package com.learning.first;
 
 
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class FirstController {
@@ -13,9 +11,13 @@ public class FirstController {
         return "Om Ganeshaya Namaha";
     }
 
-    @GetMapping("/hello2")
-    @ResponseStatus(HttpStatus.ACCEPTED)
-    public String sayHello2(){
-        return "Jai Hanuman";
+   @PostMapping("/post")
+    public String post( @RequestBody String message){
+        return "Post request with message: " + message;
+   }
+
+    @PostMapping("/post-order")
+    public String post( @RequestBody Order order){
+        return "Post request with message: " + order.toString();
     }
 }
